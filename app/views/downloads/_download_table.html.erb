@@ -1,0 +1,14 @@
+<%= content_tag :tr, id: dom_id(download), class: dom_class(download) do %>
+  <th scope="row"><%= link_to download.text, download %></th>
+  <td><%= time_ago_in_words(download.created_at) %> ago</td>
+  <td><%= download.status %></td>
+  <td>
+    <% if download.running? %>
+      <%= button_to 'Kill', kill_download_path(download),
+        onclick: 'return confirm("Are you sure?")',
+        method: :delete,
+        class: "btn btn-danger"
+      %>
+    <% end %>
+  </td>
+<% end %>

@@ -1,0 +1,13 @@
+en:  
+  activerecord:
+    models: 
+      download: "Download"
+    attributes:
+      download:
+        text: "Download"
+    errors:
+      models:
+        download:
+          attributes:
+            text:
+              blank: "cannot be blank"

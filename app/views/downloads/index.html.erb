@@ -1,0 +1,29 @@
+<%= turbo_stream_from :downloads %>
+<div class="row">
+  <div class="col-sm-6">
+    <h1>Downloads</h1>
+  </div>
+  <div class="col-sm-6 text-right">
+    <turbo-frame id="new_download">
+      <%= link_to new_download_path, class: 'btn btn-primary' do %>
+        Start New Download
+      <% end %>
+    </turbo-frame>
+  </div>
+</div>
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Download</th>
+        <th scope="col">Queued</th>
+        <th scope="col">Status</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody id="downloads">
+      <%= render partial: "download_table", collection: @downloads, as: :download %>
+    </tbody>
+  </table>
+  <%= paginate @downloads %>
+</div>
